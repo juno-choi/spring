@@ -8,13 +8,19 @@ import org.springframework.web.servlet.mvc.Controller;
 
 public class MainController implements Controller {
 
+	private String msg;
+	
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 //		request.setAttribute("msg", "축하합니다");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
-		mav.addObject("msg", "환영합니다 oh ye");
+		mav.addObject("msg", msg);
 		return mav;
 	}
 
