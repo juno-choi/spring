@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 스프링에서 정해진 패턴의 id로 해당 class를 대입해주어 우리가 어떤걸 쓸지 정해서 쓰면 됨 -->
+	<!-- name은 url주소값이 됨 -->
+	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+	
+	<bean name="/index.bit" class="com.bit.day02.controller.IndexController"></bean>
+	<bean name="/bbs/list.bit" class="com.bit.day02.controller.ListController"></bean>
+	<bean name="/bbs/add.bit" class="com.bit.day02.controller.AddController"></bean>
+	<bean name="/bbs/insert.bit" class="com.bit.day02.controller.InsertController"></bean>
+	
+	
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+		<!-- prefix와 suffix의 value를 정의 해주면 해당 페이지를 불러올때 /WEB/INF/view/ 페이지이름 .jsp -->
+	</bean>
+	
+	
+</beans>
