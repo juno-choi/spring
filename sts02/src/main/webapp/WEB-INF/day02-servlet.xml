@@ -3,14 +3,27 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="dao" class="com.bit.day02.model.Day02Dao"></bean>
+	
 	<!-- 스프링에서 정해진 패턴의 id로 해당 class를 대입해주어 우리가 어떤걸 쓸지 정해서 쓰면 됨 -->
 	<!-- name은 url주소값이 됨 -->
 	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
 	
-	<bean name="/index.bit" class="com.bit.day02.controller.IndexController"></bean>
-	<bean name="/bbs/list.bit" class="com.bit.day02.controller.ListController"></bean>
-	<bean name="/bbs/add.bit" class="com.bit.day02.controller.AddController"></bean>
-	<bean name="/bbs/insert.bit" class="com.bit.day02.controller.InsertController"></bean>
+	<!-- show controller와 같이 url에 입력되어지는 viewName에 따라 화면에서 출력만 하는 컨트롤러들을 모아서 사용할 수 있다. -->
+	<!-- 기능이 없는 컨트롤러 가능 -->
+	<bean name="/index.bit" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="index"></property>
+	</bean>
+	<!-- name== 파라미터값처럼 날라가는 이름이고 ref==6번째 라인의 bean id=dao로 지정한 값을 가져오는 것이다 -->
+	<bean name="/bbs/list.bit" class="com.bit.day02.controller.ListController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean name="/bbs/add.bit" class="com.bit.day02.controller.ShowController">
+		<property name="viewName" value="add"></property>
+	</bean>
+	<bean name="/bbs/insert.bit" class="com.bit.day02.controller.InsertController">
+		<property name="dao" ref="dao"></property>
+	</bean>
 	
 	
 	
