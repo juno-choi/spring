@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+<style type="text/css">
+	table td>a{
+		display: block;
+	}
+</style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 </head>
@@ -23,8 +28,8 @@
 		</div>
 		<div class="row">
 			<div class="col-md-4">
-				<a href="list.bit" class="btn btn-primary btn-block" role="button">리스트</a>
-				<a href="add.bit" class="btn btn-default btn-block" role="button">글쓰기</a>
+				<a href="list.bit" class="btn btn-primary btn-lg btn-block" role="button">리스트</a>
+				<a href="add.bit" class="btn btn-default btn-lg btn-block" role="button">글쓰기</a>
 			</div>
 			<div class="col-md-8">
 				<table class="table">
@@ -36,10 +41,10 @@
 					</tr>
 					<c:forEach items="${alist }" var="bean">
 						<tr>
-							<td>${bean.num }</td>
-							<td>${bean.sub }</td>
-							<td>${bean.name }</td>
-							<td>${bean.nalja }</td>
+							<td><a href="detail.bit?idx=${bean.num }">${bean.num }</a></td>
+							<td><a href="detail.bit?idx=${bean.num }">${bean.sub }</a></td>
+							<td><a href="detail.bit?idx=${bean.num }">${bean.name }</a></td>
+							<td><a href="detail.bit?idx=${bean.num }">${bean.nalja }</a></td>
 						</tr>
 					</c:forEach>
 				</table>

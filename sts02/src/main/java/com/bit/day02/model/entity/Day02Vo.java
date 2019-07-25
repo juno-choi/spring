@@ -7,6 +7,15 @@ public class Day02Vo {
 	private String name,sub,content;
 	private Date nalja;
 	
+	public Day02Vo(int num, String name, String sub, String content, Date nalja) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.sub = sub;
+		this.content = content;
+		this.nalja = nalja;
+	}
+
 	public Day02Vo() {
 		
 	}
