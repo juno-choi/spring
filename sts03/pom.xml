@@ -23,7 +23,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>4.13.1</version>
       <scope>test</scope>
     </dependency>
     <!-- 스코프 test라 명시하면 package할때는 포함되지 않고 packaging 한다 -->
